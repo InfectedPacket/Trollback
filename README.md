@@ -5,8 +5,7 @@ Interception tool for the Throwback command and control software
 C2 Server Options:
   Options to communicate with C2 server
 
-  -t TARGET_URI, --target TARGET_URI
-                        URL of the C2 server to target.
+  -t url, --target url  URL of the C2 server to target.
   -k CRYPTO_KEY, --crypto-key CRYPTO_KEY
                         RC4 crypto key used by the server.
   -a POSTAUTH_KEY, --post-auth POSTAUTH_KEY
@@ -18,17 +17,46 @@ C2 Server Options:
   -sk STRINGS_KEY, --strings-key STRINGS_KEY
                         XOR key used to unobfuscate strings in implant.
 
-Flooding Options:
-  Options to flood the C2 with random data
+Operations:
+  Operations/Counter-Ops available.
 
-  -d ACTION_FLOOD, --decoys ACTION_FLOOD
+  -d nb_hosts, --decoys nb_hosts
                         Nb. of fake hosts to authentify with the C2 server
-  -b, --beacon          Sends a beacon to the specified C2 server.
-  -s ACTION_SCAN, --scan ACTION_SCAN
+  -b milliseconds, --beacon milliseconds
+                        Sends a beacon to the specified C2 server.
+  -s file | directory, --scan file | directory
                         File or directory to scan for Throwback implant.
-  -f ACTION_SEARCH [ACTION_SEARCH ...], --find ACTION_SEARCH [ACTION_SEARCH ...]
+  -f file | directory [file | directory ...], --find file | directory [file | directory ...]
                         Searches for files containing keywords in given
                         directory.
   -i, --indicators      Extract indicators from scanned files.
+  -p, --probe           Probe Throwback C2 servers for information.
+  -l EVENT_LOG, --log EVENT_LOG
+                        Specifies a file to keep a log of events.
+  --noexec              Prevents execution of files uploaded by adversary.
+
+File I/O Options:
+  File management options
+
+  -dd DOWN_DIR, --download DOWN_DIR
+                        Destination directory for downloaded file
+  -bd BACK_DIR, --backup BACK_DIR
+                        Backup directory for files downloaded.
+  -vv, --verbose        Shows lots of strings and characters...
+
+Host:
+  Information about the target host.
+
+  -hn Hostname, --hostname Hostname
+                        Name of the host.
+  -id Machine ID, --guid Machine ID
+                        Guid of the host.
+  -ip IPv4 Address      IPv4 address of the local machine.
+
+Connection Options:
+  Options to connect
+
+  -pp host:port, --proxy host:port
+                        Proxy to send the requests, if any.
 
 ```
